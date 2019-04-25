@@ -1,0 +1,239 @@
+@mixin scroll
+    &::-webkit-scrollbar
+        width: 5px
+        border-radius: 3px
+    &::-webkit-scrollbar-track
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0)
+        border-radius: 3px
+    &::-webkit-scrollbar-thumb
+        background-color: #879bbd
+        outline: 1px solid slategrey
+        border-radius: 3px
+    &::-webkit-scrollbar-corner
+        border-radius: 3px
+
+body, html, #root
+    width: 100%
+    height: 100%   
+    font-family: Montserrat, Arial, Helvetica, sans-serif
+.kanban
+    width: calc(100% - 40px)
+    height: calc(100% - 40px)
+    display: flex
+    overflow-x: scroll
+    justify-content: flex-start
+    align-items: flex-start
+    padding: 20px
+    background: url("http://web-citizen.ru/game-is-work/api__v_2/vk/cosmos.jpg")
+    @include scroll
+    &__list-cards
+        background-color: #dfe3e6
+        border-radius: 3px
+        display: flex
+        flex-direction: column
+        max-height: 100%
+        position: relative
+    &__addList
+        min-width: 272px
+        height: 97px
+        background: #DFE3E6
+        display: flex
+        border-radius: 3px
+        justify-content: flex-start
+        align-items: center
+        flex-direction: column
+        position: relative
+        margin-right: 12px
+        &-input
+            width: calc(100% - 36px)
+            margin: 12px 0 8px 0
+            background: #FFFFFF 
+            box-shadow: 0px 1px 4px rgba(9, 45, 66, 0.25)
+            border-radius: 3px
+            margin-bottom: 8px
+            height: auto
+            cursor: pointer
+            resize: none
+            outline: none
+            height: 27px
+            border: none
+            font-size: 13px
+            padding: 8px 0 0 12px
+            font-family: Montserrat, Arial, Helvetica, sans-serif
+        &-button
+            width: 147px
+            height: 30px
+            background: #39C071
+            border-radius: 3px
+            display: flex
+            justify-content: center
+            align-items: center
+            font-style: normal
+            font-weight: bold
+            font-size: 13px
+            line-height: 19px
+            color: #FFFFFF
+            font-family: Montserrat
+            border: none
+            outline: none
+            position: absolute
+            bottom: 12px
+            left: 12px
+            cursor: pointer
+        &-close
+            position: absolute
+            bottom: 19px
+            right: 12px
+            cursor: pointer
+            width: 15px
+            height: 15px
+            display: flex
+            // background: red
+    
+
+
+
+        
+
+.wrapper-list
+    width: 272px
+    margin-right: 12px
+    height: 100%
+
+.list-cards
+    &__title
+        font-style: normal
+        font-weight: bold
+        font-size: 13px
+        width: 100%
+        display: flex
+        height: auto
+        // position: absolute
+        top: 0
+        right: 0
+        &-text
+            margin: 8px 0 12px 12px
+    &__cards
+        margin-bottom: 0
+        overflow-y: auto
+        overflow-x: hidden
+        min-height: 0
+        align-items: flex-start
+        justify-content: center
+        align-content: flex-start
+        display: flex
+        flex-wrap: wrap
+        width: 272px
+        font-size: 13px
+        @include scroll
+        
+        &-card
+            width: calc(100% - 48px)
+            padding: 8px 12px 8px 12px
+            background: #FFFFFF 
+            box-shadow: 0px 1px 4px rgba(9, 45, 66, 0.25)
+            border-radius: 3px
+            margin-bottom: 8px
+            height: auto
+            cursor: pointer
+            word-break: break-all
+            // &:last-child
+            //     margin-bottom: 43px
+    &__new
+        border-radius: 0 0 3px 3px
+        color: #6b808c
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        align-content: flex-start
+        padding-left: 8px
+        flex: 0 0 auto
+        position: relative
+        text-decoration: none
+        user-select: none
+        cursor: pointer
+        height: 43px
+        width: 272px
+        &-text
+            color: #6B808C 
+            line-height: 19px
+            display: inline-flex
+            height: 19px
+            font-size: 13px
+            margin-left: 8px
+    &__input
+        width: calc(100% - 48px)
+        padding: 8px 12px 8px 12px
+        background: #FFFFFF 
+        box-shadow: 0px 1px 4px rgba(9, 45, 66, 0.25)
+        border-radius: 3px
+        margin-bottom: 8px
+        height: auto
+        cursor: pointer
+        resize: none
+        outline: none
+        min-height: 38px
+        border: none
+    &__new-button
+        width: 100%
+        height: 45px
+        position: absolute
+        bottom: 0
+        right: 0
+        display: flex
+        background: #DFE3E6
+        border-radius: 3px
+        justify-content: flex-start
+        align-items: center
+
+.new-button
+    &__accept
+        width: 152px
+        height: 30px
+        background: #39C071
+        border-radius: 3px
+        display: flex
+        justify-content: center
+        align-items: center
+        font-style: normal
+        font-weight: bold
+        font-size: 13px
+        line-height: 19px
+        color: #FFFFFF
+        font-family: Montserrat
+        border: none
+        outline: none
+        position: absolute
+        bottom: 12px
+        left: 12px
+        cursor: pointer
+        white-space: nowrap
+        font-size: 13px
+    &__close
+        position: absolute
+        bottom: 19px
+        right: 12px
+        cursor: pointer
+        width: 15px
+        height: 15px
+        display: flex   
+        
+
+.sortable-ghost.sortable-chosen
+    background: #C9D2D9
+    position: relative
+    &:before
+        content: ''
+        display: flex
+        width: 100%
+        height: 100%
+        position: absolute
+        background: #C9D2D9
+        right: 0
+        top: 0
+        border-radius: 3px
+    
+// .list-cards__cards-card.sortable-ghost
+//     opacity: 1 !important
+//     transform: rotate(5deg) !important
+//     background: pink
